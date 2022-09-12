@@ -13,6 +13,9 @@
     <string name="earth" translatable="false">Earth</string>
     <string name="mars" translatable="false">Mars</string>
     <string name="system" translatable="false">System</string>
+    <string name="errorClient" >Ошибка у пользователя</string>
+    <string name="errorServer" >Ошибка сервера</string>
+    <string name="errorUnknown" >Неизвестная ошибка</string>
 
 
     <string name="test_html" translatable="false">My text <ul><li>bullet one</li><li>bullet two</li></ul></string>

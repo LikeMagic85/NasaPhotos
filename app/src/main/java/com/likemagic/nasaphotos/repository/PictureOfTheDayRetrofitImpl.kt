@@ -7,10 +7,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class PictureOfTheDayRetrofitImpl {
 
-    private val nasaBaseURL = NASA_BASE_URL
-
     private val pictureOfTheDayRetrofitImpl = Retrofit.Builder()
-        .baseUrl(nasaBaseURL)
+        .baseUrl(NASA_BASE_URL)
         .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
         .build()
 

@@ -1,7 +1,7 @@
 package com.likemagic.nasaphotos.repository
 
 import com.google.gson.GsonBuilder
-import com.likemagic.nasaphotos.NASA_BASE_URL
+import com.likemagic.nasaphotos.utils.NASA_BASE_URL
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

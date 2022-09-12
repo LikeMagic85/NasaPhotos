@@ -1,6 +1,6 @@
 package com.likemagic.nasaphotos.repository
 
-import com.likemagic.nasaphotos.NASA_END_POINT
+import com.likemagic.nasaphotos.utils.NASA_END_POINT
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

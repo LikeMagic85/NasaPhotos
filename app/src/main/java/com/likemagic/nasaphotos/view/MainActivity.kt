@@ -1,7 +1,8 @@
-package com.likemagic.nasaphotos
+package com.likemagic.nasaphotos.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.likemagic.nasaphotos.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -9,7 +9,7 @@
 <string name="settings" translatable="false">settings</string>
 <string name="search" translatable="false">Search</string>
 <string name="today">Today</string>
-<string name="tdby" translatable="false">TDBY</string>
+<string name="tdby" translatable="false">2 days ago</string>
 <string name="yesterday" translatable="false">Yesterday</string>
 <string name="earth" translatable="false">Earth</string>
 <string name="mars" translatable="false">Mars</string>

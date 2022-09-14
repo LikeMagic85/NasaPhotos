@@ -1,6 +1,5 @@
 package com.likemagic.nasaphotos.ViewModel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,6 +9,8 @@ import com.likemagic.nasaphotos.repository.PictureOfTheDayRetrofitImpl
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.SimpleDateFormat
+import java.util.*
 
 class POTDViewModel(
     val liveData: MutableLiveData<POTDAppState> = MutableLiveData(),
@@ -19,9 +20,16 @@ class POTDViewModel(
         return liveData
     }
 
+    private fun getModifiedDate(): String {
+        val cal = Calendar.getInstance()
+        val fmt = SimpleDateFormat("yyyy-MM-dd")
+        cal.add(Calendar.DATE, -2);
+        return fmt.format(cal.time)
+    }
+
     fun sendRequest() {
         liveData.postValue(POTDAppState.Loading)
-        pictureOfTheDayRetrofitImpl.getRetrofit().getPictureOfTheDay(BuildConfig.NASA_API_KEY)
+        pictureOfTheDayRetrofitImpl.getRetrofit().getPictureOfTheDay(BuildConfig.NASA_API_KEY, getModifiedDate())
             .enqueue(callback)
     }
 

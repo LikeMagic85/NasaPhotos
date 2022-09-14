@@ -1,17 +1,12 @@
 package com.likemagic.nasaphotos.view.picture
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.likemagic.nasaphotos.R
-import com.likemagic.nasaphotos.ViewModel.POTDViewModel
 import com.likemagic.nasaphotos.databinding.BottomNavigationLayoutBinding
-import com.likemagic.nasaphotos.databinding.FragmentPictureOfTheDayBinding
 
 class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
 
@@ -39,10 +34,10 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
         binding.navigationView.setNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.navigation_one -> {
-
+                    dismiss()
                 }
                 R.id.navigation_two -> {
-
+                    dismiss()
                 }
             }
             true

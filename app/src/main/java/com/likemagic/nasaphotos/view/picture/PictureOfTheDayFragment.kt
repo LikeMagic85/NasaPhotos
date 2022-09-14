@@ -69,8 +69,9 @@ class PictureOfTheDayFragment : Fragment() {
 
             }
             is POTDAppState.Success -> {
-
                 binding.imageView.load(appState.pictureOfTheDayDTO.url)
+                binding.bottomSheet.title.text = appState.pictureOfTheDayDTO.title
+                binding.bottomSheet.explanation.text = appState.pictureOfTheDayDTO.explanation
             }
         }
     }

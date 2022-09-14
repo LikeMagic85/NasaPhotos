@@ -1,5 +1,7 @@
-package com.likemagic.nasaphotos.view
+package com.likemagic.nasaphotos.view.picture
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -31,10 +33,6 @@ class PictureOfTheDayFragment : Fragment() {
         _binding = null
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,11 +43,11 @@ class PictureOfTheDayFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.loadingLayout.visibility = View.GONE
         viewModel.getLiveData().observe(viewLifecycleOwner){
             renderData(it)
         }
         viewModel.sendRequest()
+        findOnWiki()
     }
 
     private fun renderData(appState: POTDAppState){
@@ -68,12 +66,20 @@ class PictureOfTheDayFragment : Fragment() {
                 }
             }
             POTDAppState.Loading -> {
-                binding.loadingLayout.visibility = View.VISIBLE
+
             }
             is POTDAppState.Success -> {
-                binding.loadingLayout.visibility = View.GONE
+
                 binding.imageView.load(appState.pictureOfTheDayDTO.url)
             }
+        }
+    }
+
+    private fun findOnWiki(){
+        binding.inputLayout.setEndIconOnClickListener{
+            startActivity(Intent(Intent.ACTION_VIEW).apply {
+                data = Uri.parse("https://en.wikipedia.org/wiki/${binding.inputEditText.text.toString()}")
+            })
         }
     }
 

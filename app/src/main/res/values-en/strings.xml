@@ -1,27 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Nasa Photos</string>
+<string name="app_name">Nasa Photos</string>
 
-    <string name="photo_of_the_day_stub" translatable="false">Фото дня</string>
-    <string name="search_wiki" translatable="false">Найти в Википедии</string>
-    <string name="wiki_helper_text" translatable="false">Поищите термин в википедии</string>
-    <string name="favourite" translatable="false">favourite</string>
-    <string name="settings" translatable="false">settings</string>
-    <string name="search" translatable="false">Search</string>
-    <string name="today">Today</string>
-    <string name="tdby" translatable="false">TDBY</string>
-    <string name="yesterday" translatable="false">Yesterday</string>
-    <string name="earth" translatable="false">Earth</string>
-    <string name="mars" translatable="false">Mars</string>
-    <string name="system" translatable="false">System</string>
-    <string name="errorClient" >Ошибка у пользователя</string>
-    <string name="errorServer" >Ошибка сервера</string>
-    <string name="errorUnknown" >Неизвестная ошибка</string>
-
-
-    <string name="test_html" translatable="false">My text <ul><li>bullet one</li><li>bullet two</li></ul></string>
+<string name="photo_of_the_day_stub" translatable="false">Photo of the day</string>
+<string name="search_wiki" translatable="false">Find on Wikipedia</string>
+<string name="wiki_helper_text" translatable="false">Look up the term on wikipedia</string>
+<string name="favourite" translatable="false">favourite</string>
+<string name="settings" translatable="false">settings</string>
+<string name="search" translatable="false">Search</string>
+<string name="today">Today</string>
+<string name="tdby" translatable="false">TDBY</string>
+<string name="yesterday" translatable="false">Yesterday</string>
+<string name="earth" translatable="false">Earth</string>
+<string name="mars" translatable="false">Mars</string>
+<string name="system" translatable="false">System</string>
+<string name="errorClient" >User error</string>
+<string name="errorServer" >server error</string>
+<string name="errorUnknown" >Unknown error</string>
 
 
-    <string name="large_text" translatable="false">"Material is the metaphor.\n\n"
+<string name="test_html" translatable="false">My text <ul><li>bullet one</li><li>bullet two</li></ul></string>
+
+
+<string name="large_text" translatable="false">"Material is the metaphor.\n\n"
 
         "A material metaphor is the unifying theory of a rationalized space and a system of motion."
         "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
@@ -108,7 +109,7 @@
         "On the layout level, design your app layout to minimize opportunities for interference. "
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"</string>
-    <string name="textDescr">Марс -- четвёртая по удалённости от Солнца и седьмая по размерам планета Солнечной системы. Названа в честь Марса -- древнеримского бога войны, соответствующего древнегреческому Аресу. Иногда Марс называют «красной планетой» из-за красноватого оттенка поверхности, придаваемого ей минералом маггемитом (оксидом железа).</string>
+<string name="textDescr">Марс -- четвёртая по удалённости от Солнца и седьмая по размерам планета Солнечной системы. Названа в честь Марса -- древнеримского бога войны, соответствующего древнегреческому Аресу. Иногда Марс называют «красной планетой» из-за красноватого оттенка поверхности, придаваемого ей минералом маггемитом (оксидом железа).</string>
 
 
-</resources>
+    </resources>

@@ -121,7 +121,9 @@ class PictureOfTheDayFragment : Fragment() {
             }
             is POTDAppState.Success -> {
                 if(appState.pictureOfTheDayDTO[position].mediaType == "image"){
-                    binding.imageView.load(appState.pictureOfTheDayDTO[position].url)
+                    binding.imageView.load(appState.pictureOfTheDayDTO[position].hdurl){
+                        placeholder(R.drawable.ic_no_photo_vector)
+                    }
                     binding.webView.visibility = View.GONE
                     binding.imageView.visibility = View.VISIBLE
                 }else{

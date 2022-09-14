@@ -35,7 +35,7 @@
             android:layout_gravity="center"
             android:contentDescription="@string/photo_of_the_day_stub"
             android:scaleType="fitXY"
-            android:src="@drawable/ic_no_photo_vector" />
+             />
 
         <WebView
             android:id="@+id/webView"

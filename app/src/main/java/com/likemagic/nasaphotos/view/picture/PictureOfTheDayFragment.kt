@@ -3,18 +3,19 @@ package com.likemagic.nasaphotos.view.picture
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.*
+import android.widget.Toolbar
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import coil.load
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.snackbar.Snackbar
 import com.likemagic.nasaphotos.R
 import com.likemagic.nasaphotos.ViewModel.AppError
 import com.likemagic.nasaphotos.ViewModel.POTDAppState
 import com.likemagic.nasaphotos.ViewModel.POTDViewModel
 import com.likemagic.nasaphotos.databinding.FragmentPictureOfTheDayBinding
+import com.likemagic.nasaphotos.view.MainActivity
 
 class PictureOfTheDayFragment : Fragment() {
 
@@ -43,11 +44,47 @@ class PictureOfTheDayFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setHasOptionsMenu(true)
         viewModel.getLiveData().observe(viewLifecycleOwner){
             renderData(it)
         }
         viewModel.sendRequest()
         findOnWiki()
+        setBottomAppBar()
+    }
+
+    private fun bottomSheetBehaviorSettings(){
+        val bottomSheetBehavior = BottomSheetBehavior.from(binding.bottomSheet.bottomSheetContainer)
+        bottomSheetBehavior.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback(){
+            override fun onStateChanged(bottomSheet: View, newState: Int) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onSlide(bottomSheet: View, slideOffset: Float) {
+                slideOffset
+            }
+        })
+    }
+
+    private fun setBottomAppBar(){
+        (requireActivity() as MainActivity).setSupportActionBar(binding.bottomAppBar)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_bottom_bar,menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+         when(item.itemId){
+            R.id.app_bar_fav -> {}
+            R.id.app_bar_settings -> {}
+             android.R.id.home ->{
+                BottomNavigationDrawerFragment.newInstance().show(requireActivity().supportFragmentManager, "")
+             }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun renderData(appState: POTDAppState){

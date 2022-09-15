@@ -21,3 +21,4 @@ data class PictureOfTheDayDTOItem(
     @SerializedName("url")
     val url: String
 )
+

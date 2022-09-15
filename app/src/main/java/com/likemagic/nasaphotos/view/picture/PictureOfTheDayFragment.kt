@@ -1,8 +1,11 @@
 package com.likemagic.nasaphotos.view.picture
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.webkit.WebChromeClient
 import androidx.core.content.ContextCompat
@@ -18,8 +21,12 @@ import com.likemagic.nasaphotos.ViewModel.AppError
 import com.likemagic.nasaphotos.ViewModel.POTDAppState
 import com.likemagic.nasaphotos.ViewModel.POTDViewModel
 import com.likemagic.nasaphotos.databinding.FragmentPictureOfTheDayBinding
+import com.likemagic.nasaphotos.utils.APP_SETTINGS
+import com.likemagic.nasaphotos.utils.IMAGE_HD
+import com.likemagic.nasaphotos.utils.VIDEO_ON_YOUTUBE_APP
 import com.likemagic.nasaphotos.utils.WIKI_BASE_URL
 import com.likemagic.nasaphotos.view.MainActivity
+import com.likemagic.nasaphotos.view.settings.SettingsFragment
 
 class PictureOfTheDayFragment : Fragment() {
     private var isMain = true
@@ -28,6 +35,8 @@ class PictureOfTheDayFragment : Fragment() {
     get() {
         return _binding!!
     }
+
+    private lateinit var sp: SharedPreferences
 
     private val viewModel:POTDViewModel by lazy {
         ViewModelProvider(this)[POTDViewModel::class.java]
@@ -61,7 +70,7 @@ class PictureOfTheDayFragment : Fragment() {
 
     private fun bottomSheetBehaviorSetup(){
         val bottomSheetBehavior = BottomSheetBehavior.from(binding.bottomSheet.bottomSheetContainer)
-        bottomSheetBehavior.state = BottomSheetBehavior.STATE_HALF_EXPANDED
+        bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
         bottomSheetBehavior.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback(){
             override fun onStateChanged(bottomSheet: View, newState: Int) {
                 when(newState){
@@ -80,6 +89,7 @@ class PictureOfTheDayFragment : Fragment() {
         })
     }
 
+
     private fun setBottomAppBar(){
         (requireActivity() as MainActivity).setSupportActionBar(binding.bottomAppBar)
     }
@@ -90,10 +100,15 @@ class PictureOfTheDayFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
          when(item.itemId){
             R.id.app_bar_fav -> {}
-            R.id.app_bar_settings -> {}
+            R.id.app_bar_settings -> {
+                requireActivity().supportFragmentManager
+                    .beginTransaction()
+                    .addToBackStack("")
+                    .add(R.id.mainContainer, SettingsFragment.newInstance())
+                    .commit()
+            }
              android.R.id.home ->{
                 BottomNavigationDrawerFragment.newInstance().show(requireActivity().supportFragmentManager, "")
              }
@@ -121,20 +136,32 @@ class PictureOfTheDayFragment : Fragment() {
             }
             is POTDAppState.Success -> {
                 if(appState.pictureOfTheDayDTO[position].mediaType == "image"){
-                    binding.imageView.load(appState.pictureOfTheDayDTO[position].hdurl){
+                    sp = requireActivity().getSharedPreferences(APP_SETTINGS, Context.MODE_PRIVATE)
+                    val quality = if(!sp.getBoolean(IMAGE_HD, false)){
+                        appState.pictureOfTheDayDTO[position].url
+                    }else{
+                        appState.pictureOfTheDayDTO[position].hdurl
+                    }
+                    binding.imageView.load(quality){
                         placeholder(R.drawable.ic_no_photo_vector)
                     }
                     binding.webView.visibility = View.GONE
                     binding.imageView.visibility = View.VISIBLE
                 }else{
-                    binding.imageView.visibility = View.GONE
-                    binding.webView.apply {
-                        visibility = View.VISIBLE
-                        settings.setJavaScriptEnabled(true)
-                        webChromeClient = object : WebChromeClient() {
+                    sp = requireActivity().getSharedPreferences(APP_SETTINGS, Context.MODE_PRIVATE)
+                    if(!sp.getBoolean(VIDEO_ON_YOUTUBE_APP, false)){
+                        binding.imageView.visibility = View.GONE
+                        binding.webView.apply {
+                            visibility = View.VISIBLE
+                            settings.setJavaScriptEnabled(true)
+                            webChromeClient = object : WebChromeClient() {
+                            }
+                            loadUrl(appState.pictureOfTheDayDTO[position].url)
                         }
-                        loadUrl(appState.pictureOfTheDayDTO[position].url)
+                    }else{
+
                     }
+
                 }
 
                 binding.bottomSheet.title.text = appState.pictureOfTheDayDTO[position].title

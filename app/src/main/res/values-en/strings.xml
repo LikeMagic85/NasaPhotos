@@ -2,18 +2,18 @@
 <resources>
 <string name="app_name">Nasa Photos</string>
 
-<string name="photo_of_the_day_stub" translatable="false">Photo of the day</string>
-<string name="search_wiki" translatable="false">Find on Wikipedia</string>
-<string name="wiki_helper_text" translatable="false">Look up the term on wikipedia</string>
-<string name="favourite" translatable="false">favourite</string>
-<string name="settings" translatable="false">settings</string>
-<string name="search" translatable="false">Search</string>
+<string name="photo_of_the_day_stub" >Photo of the day</string>
+<string name="search_wiki" >Find on Wikipedia</string>
+<string name="wiki_helper_text" >Look up the term on wikipedia</string>
+<string name="favourite" >favourite</string>
+<string name="settings" >settings</string>
+<string name="search" >Search</string>
 <string name="today">Today</string>
-<string name="tdby" translatable="false">2 days ago</string>
-<string name="yesterday" translatable="false">Yesterday</string>
-<string name="earth" translatable="false">Earth</string>
-<string name="mars" translatable="false">Mars</string>
-<string name="system" translatable="false">System</string>
+<string name="tdby" >2 days ago</string>
+<string name="yesterday" >Yesterday</string>
+<string name="earth" >Earth</string>
+<string name="mars" >Mars</string>
+<string name="system">System</string>
 <string name="errorClient" >User error</string>
 <string name="errorServer" >server error</string>
 <string name="errorUnknown" >Unknown error</string>
@@ -110,6 +110,12 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"</string>
 <string name="textDescr">Mars is the fourth largest planet from the Sun and the seventh largest planet in the solar system. Named after Mars - the ancient Roman god of war, corresponding to the ancient Greek Ares. Mars is sometimes referred to as the \"red planet\" because of the reddish hue of its surface, given to it by the mineral maghemite (iron oxide).</string>
+        <string name="image_settings">Image</string>
+        <string name="video_settings">Video</string>
+        <string name="system_settings">System</string>
+    <string name="image_hd_quality">HD quality images</string>
+        <string name="youtube_app_text">Watching videos in YouTube App</string>
+        <string name="night_theme_text">Use system theme</string>
 
 
-    </resources>
+</resources>

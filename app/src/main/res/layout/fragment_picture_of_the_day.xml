@@ -1,92 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/search_wiki"
-        app:counterEnabled="true"
-        app:counterMaxLength="20"
-        app:endIconContentDescription="content_description_end_icon"
-        app:endIconDrawable="@drawable/ic_wikipedia"
-        app:endIconMode="custom"
-        app:helperText="@string/wiki_helper_text">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/input_edit_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <LinearLayout
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:scaleType="centerCrop"
+        android:alpha="0.9"
+        android:src="@drawable/ic_launcher_background"/>
 
-        <com.likemagic.nasaphotos.utils.EquilateralImageView
-            android:id="@+id/imageView"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:contentDescription="@string/photo_of_the_day_stub"
-            android:scaleType="centerCrop" />
+            android:hint="@string/search_wiki"
+            app:counterEnabled="true"
+            app:counterMaxLength="20"
+            app:endIconContentDescription="content_description_end_icon"
+            app:endIconDrawable="@drawable/ic_wikipedia"
+            app:endIconMode="custom"
+            app:helperText="@string/wiki_helper_text">
 
-        <WebView
-            android:id="@+id/webView"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:visibility="gone"/>
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chipGroup"
+            <com.likemagic.nasaphotos.utils.EquilateralCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#969697"
+                android:layout_marginBottom="@dimen/m_card_margin"
+                app:cardElevation="15dp"
+                app:cardCornerRadius="10dp"
+                tools:ignore="WebViewLayout">
+                <com.likemagic.nasaphotos.utils.EquilateralImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/photo_of_the_day_stub"
+                    android:scaleType="centerCrop" />
+
+                <WebView
+                    android:id="@+id/webView"
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    android:visibility="gone"/>
+            </com.likemagic.nasaphotos.utils.EquilateralCardView>
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:tag="today"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/today" />
+
+                <com.google.android.material.chip.Chip
+                    android:tag="yesterday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/yesterday" />
+
+                <com.google.android.material.chip.Chip
+                    android:tag="tdby"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tdby" />
+            </com.google.android.material.chip.ChipGroup>
+        </LinearLayout>
+
+
+        <include
+            android:id="@+id/bottomSheet"
+            layout="@layout/bottom_sheet_layout" />
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottomAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:backgroundTint="?colorPrimary"
+            app:fabAlignmentMode="center"
+            app:navigationIcon="@drawable/ic_hamburger_menu_bottom_bar" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            app:singleSelection="true">
+            android:backgroundTint="?colorSecondary"
+            app:layout_anchor="@id/bottomAppBar"
+            app:srcCompat="@drawable/ic_plus_fab"
+            app:tint="@color/white_gray" />
 
-            <com.google.android.material.chip.Chip
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/today" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-            <com.google.android.material.chip.Chip
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/yesterday" />
-
-            <com.google.android.material.chip.Chip
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tdby" />
-        </com.google.android.material.chip.ChipGroup>
-    </LinearLayout>
-
-
-    <include
-        android:id="@+id/bottomSheet"
-        layout="@layout/bottom_sheet_layout" />
-
-    <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bottomAppBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        app:backgroundTint="?colorPrimary"
-        app:fabAlignmentMode="center"
-        app:navigationIcon="@drawable/ic_hamburger_menu_bottom_bar" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="?colorSecondary"
-        app:layout_anchor="@id/bottomAppBar"
-        app:srcCompat="@drawable/ic_plus_fab"
-        app:tint="@color/white_gray" />
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</FrameLayout>

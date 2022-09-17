@@ -1,12 +1,16 @@
 package com.likemagic.nasaphotos.view.settings
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CompoundButton
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
 import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayout
 import com.likemagic.nasaphotos.databinding.FragmentSettingsBinding
@@ -14,6 +18,7 @@ import com.likemagic.nasaphotos.utils.APP_SETTINGS
 import com.likemagic.nasaphotos.utils.IMAGE_HD
 import com.likemagic.nasaphotos.utils.SYSTEM_THEME
 import com.likemagic.nasaphotos.utils.VIDEO_ON_YOUTUBE_APP
+
 
 class SettingsFragment : Fragment() {
 
@@ -118,8 +123,10 @@ class SettingsFragment : Fragment() {
             override fun onCheckedChanged(p0: CompoundButton?, p1: Boolean) {
                 if(p1){
                     editor.putBoolean(SYSTEM_THEME, true)
+                    AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_FOLLOW_SYSTEM)
                 }else{
                     editor.putBoolean(SYSTEM_THEME, false)
+                    AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
                 }
                 editor.apply()
             }

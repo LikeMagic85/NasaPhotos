@@ -9,12 +9,14 @@ import android.util.Log
 import android.view.*
 import android.webkit.WebChromeClient
 import androidx.core.content.ContextCompat
+import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import coil.load
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
 import com.google.android.material.snackbar.Snackbar
 import com.likemagic.nasaphotos.R
 import com.likemagic.nasaphotos.ViewModel.AppError
@@ -89,7 +91,6 @@ class PictureOfTheDayFragment : Fragment() {
         })
     }
 
-
     private fun setBottomAppBar(){
         (requireActivity() as MainActivity).setSupportActionBar(binding.bottomAppBar)
     }
@@ -159,13 +160,24 @@ class PictureOfTheDayFragment : Fragment() {
                             loadUrl(appState.pictureOfTheDayDTO[position].url)
                         }
                     }else{
-
+                        binding.imageView.visibility = View.GONE
+                        val appIntent = Intent(Intent.ACTION_VIEW, Uri.parse(appState.pictureOfTheDayDTO[position].url))
+                        requireActivity().startActivity(appIntent)
+                        binding.webView.apply {
+                            visibility = View.VISIBLE
+                            settings.setJavaScriptEnabled(true)
+                            webChromeClient = object : WebChromeClient() {
+                            }
+                            loadUrl(appState.pictureOfTheDayDTO[position].url)
+                        }
                     }
 
                 }
+                with(binding.bottomSheet){
+                    title.text = appState.pictureOfTheDayDTO[position].title
+                    explanation.text = appState.pictureOfTheDayDTO[position].explanation
+                }
 
-                binding.bottomSheet.title.text = appState.pictureOfTheDayDTO[position].title
-                binding.bottomSheet.explanation.text = appState.pictureOfTheDayDTO[position].explanation
                 setupChips(appState)
             }
         }
@@ -182,33 +194,29 @@ class PictureOfTheDayFragment : Fragment() {
     private fun setupFab(){
         binding.fab.setOnClickListener{
             if(isMain){
-                binding.bottomAppBar.navigationIcon = null
-                binding.bottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END
-                binding.fab.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_back_fab))
+                with(binding){
+                    bottomAppBar.navigationIcon = null
+                    bottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END
+                    fab.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_back_fab))
+                }
+
             }else{
-                binding.bottomAppBar.navigationIcon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_hamburger_menu_bottom_bar)
-                binding.bottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
-                binding.fab.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_plus_fab))
+                with(binding){
+                    bottomAppBar.navigationIcon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_hamburger_menu_bottom_bar)
+                    bottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
+                    fab.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_plus_fab))
+                }
             }
             isMain = !isMain
         }
     }
 
     private fun setupChips(appState: POTDAppState){
-        binding.chipGroup.setOnCheckedChangeListener{group, position ->
-            group.findViewById<Chip>(position)?.let {
-                if(appState is POTDAppState.Success)
-                when(position){
-                    1 -> {
-                        renderData(appState, 2)
-                    }
-                    2 -> {
-                        renderData(appState, 1)
-                    }
-                    3 -> {
-                        renderData(appState, 0)
-                    }
-                }
+        binding.chipGroup. setOnCheckedStateChangeListener { group, checkedIds ->
+            when (group.checkedChipId) {
+                group[0].id -> renderData(appState, 2)
+                group[1].id -> renderData(appState, 1)
+                group[2].id -> renderData(appState, 0)
             }
         }
     }

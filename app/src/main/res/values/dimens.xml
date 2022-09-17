@@ -9,4 +9,5 @@
     <dimen name="radius">100dp</dimen>
     <dimen name="drawer_margin">8dp</dimen>
     <dimen name="settings_padding">15dp</dimen>
+    <dimen name="m_card_margin">20dp</dimen>
 </resources>

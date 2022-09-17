@@ -12,6 +12,7 @@
         android:src="@drawable/ic_launcher_background"/>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -90,7 +91,6 @@
             </com.google.android.material.chip.ChipGroup>
         </LinearLayout>
 
-
         <include
             android:id="@+id/bottomSheet"
             layout="@layout/bottom_sheet_layout" />
@@ -109,9 +109,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="?colorSecondary"
+            android:elevation="5dp"
             app:layout_anchor="@id/bottomAppBar"
             app:srcCompat="@drawable/ic_plus_fab"
             app:tint="@color/white_gray" />
+
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

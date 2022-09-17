@@ -3,6 +3,7 @@ package com.likemagic.nasaphotos.view.picture
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -29,6 +30,7 @@ import com.likemagic.nasaphotos.utils.VIDEO_ON_YOUTUBE_APP
 import com.likemagic.nasaphotos.utils.WIKI_BASE_URL
 import com.likemagic.nasaphotos.view.MainActivity
 import com.likemagic.nasaphotos.view.settings.SettingsFragment
+import java.lang.Thread.sleep
 
 class PictureOfTheDayFragment : Fragment() {
     private var isMain = true
@@ -76,9 +78,18 @@ class PictureOfTheDayFragment : Fragment() {
         bottomSheetBehavior.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback(){
             override fun onStateChanged(bottomSheet: View, newState: Int) {
                 when(newState){
-                    BottomSheetBehavior.STATE_DRAGGING -> {}
-                    BottomSheetBehavior.STATE_COLLAPSED -> {}
-                    BottomSheetBehavior.STATE_EXPANDED -> {}
+                    BottomSheetBehavior.STATE_DRAGGING -> {
+                        binding.bottomAppBar.performHide(true)
+                        binding.fab.visibility = View.GONE
+                    }
+                    BottomSheetBehavior.STATE_COLLAPSED -> {
+                        binding.bottomAppBar.performShow(true)
+                        binding.fab.visibility = View.VISIBLE
+                    }
+                    BottomSheetBehavior.STATE_EXPANDED -> {
+                        binding.bottomAppBar.performShow(true)
+                        binding.fab.visibility = View.VISIBLE
+                    }
                     BottomSheetBehavior.STATE_HALF_EXPANDED -> {}
                     BottomSheetBehavior.STATE_HIDDEN -> {}
                     BottomSheetBehavior.STATE_SETTLING -> {}
@@ -93,6 +104,7 @@ class PictureOfTheDayFragment : Fragment() {
 
     private fun setBottomAppBar(){
         (requireActivity() as MainActivity).setSupportActionBar(binding.bottomAppBar)
+        binding.bottomAppBar.z = 100f
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

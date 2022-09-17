@@ -13,9 +13,7 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
         <item name="chipStyle">@style/MyChipStyle</item>
+        <item name="bottomSheetStyle">@style/MyBottomSheetStyle</item>
     </style>
-    <style name="MyChipStyle" parent="Widget.MaterialComponents.Chip.Choice">
-        <item name="chipBackgroundColor">@color/background_color_chip_state_list</item>
-        <item name="android:textColor">@color/white_gray</item>
-    </style>
+
 </resources>

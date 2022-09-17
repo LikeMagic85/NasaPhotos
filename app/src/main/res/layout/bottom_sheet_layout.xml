@@ -5,8 +5,9 @@
     android:id="@+id/bottomSheetContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white_gray"
-    app:behavior_hideable="true"
+    style="@style/MyBottomSheetStyle"
+    android:elevation="3dp"
+    app:behavior_hideable="false"
     app:behavior_peekHeight="@dimen/behavior_peekHeight"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
@@ -15,7 +16,7 @@
         android:layout_width="@dimen/line_width"
         android:layout_height="@dimen/line_height"
         android:layout_marginTop="@dimen/line_margin_top"
-        android:background="@color/line_bg"
+        android:background="#668E8F91"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -27,7 +28,7 @@
         android:layout_marginTop="@dimen/line_margin_top"
         android:paddingStart="@dimen/bottom_sheet_padding"
         android:paddingEnd="@dimen/bottom_sheet_padding"
-        android:textColor="@color/black"
+
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,9 +41,9 @@
         android:layout_height="wrap_content"
         android:paddingStart="@dimen/bottom_sheet_padding"
         android:paddingEnd="@dimen/bottom_sheet_padding"
-        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title"
         tools:text="This lovely starfield spans some four full moons." />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

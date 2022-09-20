@@ -15,6 +15,7 @@
         <item name="chipStyle">@style/MyChipStyle</item>
         <item name="tabStyle">@style/MyTabsStyle</item>
         <item name="bottomSheetStyle">@style/MyBottomSheetStyle</item>
+        <item name="textInputStyle">@style/MyEditTextStyle</item>
     </style>
 
 

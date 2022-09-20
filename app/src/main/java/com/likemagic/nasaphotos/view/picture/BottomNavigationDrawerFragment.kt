@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.likemagic.nasaphotos.R
 import com.likemagic.nasaphotos.databinding.BottomNavigationLayoutBinding
+import com.likemagic.nasaphotos.view.navigation.ApiFragment
 
 class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
 
@@ -34,6 +35,10 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
         binding.navigationView.setNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.navigation_one -> {
+                    requireActivity().supportFragmentManager
+                        .beginTransaction()
+                        .add(R.id.mainContainer, ApiFragment.newInstance())
+                        .commit()
                     dismiss()
                 }
                 R.id.navigation_two -> {

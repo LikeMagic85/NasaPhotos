@@ -3,10 +3,8 @@ package com.likemagic.nasaphotos.view.picture
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.webkit.WebChromeClient
 import androidx.core.content.ContextCompat
@@ -16,8 +14,6 @@ import androidx.lifecycle.ViewModelProvider
 import coil.load
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.chip.Chip
-import com.google.android.material.chip.ChipGroup
 import com.google.android.material.snackbar.Snackbar
 import com.likemagic.nasaphotos.R
 import com.likemagic.nasaphotos.ViewModel.AppError
@@ -30,7 +26,6 @@ import com.likemagic.nasaphotos.utils.VIDEO_ON_YOUTUBE_APP
 import com.likemagic.nasaphotos.utils.WIKI_BASE_URL
 import com.likemagic.nasaphotos.view.MainActivity
 import com.likemagic.nasaphotos.view.settings.SettingsFragment
-import java.lang.Thread.sleep
 
 class PictureOfTheDayFragment : Fragment() {
     private var isMain = true
@@ -199,6 +194,7 @@ class PictureOfTheDayFragment : Fragment() {
         binding.inputLayout.setEndIconOnClickListener{
             startActivity(Intent(Intent.ACTION_VIEW).apply {
                 data = Uri.parse("$WIKI_BASE_URL${binding.inputEditText.text.toString()}")
+                binding.inputEditText.clearFocus()
             })
         }
     }

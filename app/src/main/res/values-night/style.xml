@@ -18,4 +18,8 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">40dp</item>
     </style>
+
+    <style name="MyEditTextStyle" parent="ThemeOverlay.Material3.TextInputEditText">
+        <item name="android:textColor">?colorSecondary</item>
+    </style>
 </resources>

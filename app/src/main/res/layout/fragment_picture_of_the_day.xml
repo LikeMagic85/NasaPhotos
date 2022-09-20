@@ -9,7 +9,7 @@
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
         android:alpha="0.9"
-        android:src="@drawable/ic_launcher_background"/>
+        android:src="@drawable/background"/>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinatorLayout"
@@ -45,8 +45,9 @@
                 android:layout_height="wrap_content"
                 app:cardBackgroundColor="#969697"
                 android:layout_marginBottom="@dimen/m_card_margin"
-                app:cardElevation="15dp"
-                app:cardCornerRadius="10dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true"
+                app:cardCornerRadius="3dp"
                 tools:ignore="WebViewLayout">
                 <com.likemagic.nasaphotos.utils.EquilateralImageView
                     android:id="@+id/imageView"

@@ -1,4 +1,4 @@
-package com.likemagic.nasaphotos.ViewModel.potdviewmodel
+package com.likemagic.nasaphotos.ViewModel.potdViewModel
 
 import com.likemagic.nasaphotos.ViewModel.AppError
 import com.likemagic.nasaphotos.repository.potdDTO.PictureOfTheDayDTO

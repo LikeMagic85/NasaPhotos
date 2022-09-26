@@ -9,8 +9,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
 import com.likemagic.nasaphotos.R
 import com.likemagic.nasaphotos.ViewModel.AppError
-import com.likemagic.nasaphotos.ViewModel.picOfEarthviewModel.POEAppState
-import com.likemagic.nasaphotos.ViewModel.picOfEarthviewModel.POEViewModel
+import com.likemagic.nasaphotos.ViewModel.picOfEarthViewModel.POEAppState
+import com.likemagic.nasaphotos.ViewModel.picOfEarthViewModel.POEViewModel
 import com.likemagic.nasaphotos.databinding.FragmentEarthBinding
 
 class EarthFragment : Fragment() {
@@ -30,8 +30,7 @@ class EarthFragment : Fragment() {
         ViewModelProvider(this)[POEViewModel::class.java]
     }
 
-    lateinit var earthAdapter: EarthAdapter
-
+    private val earthAdapter = EarthAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,7 +42,6 @@ class EarthFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        earthAdapter = EarthAdapter(requireContext())
         binding.marsRecycler.adapter = earthAdapter
         viewModel.getLiveData().observe(viewLifecycleOwner){
             renderData(it)

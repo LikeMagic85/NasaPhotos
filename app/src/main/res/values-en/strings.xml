@@ -122,6 +122,7 @@
     <string name="photo_from_space_text">Photo from Space</string>
     <string name="position_text">Position</string>
         <string name="date_text">Date</string>
+    <string name="solar_system">Solar system</string>
 
 
 </resources>

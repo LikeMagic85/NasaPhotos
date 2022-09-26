@@ -1,4 +1,4 @@
-package com.likemagic.nasaphotos.ViewModel.pfmviewmodel
+package com.likemagic.nasaphotos.ViewModel.picFromMarsviewmodel
 
 import android.util.Log
 import androidx.lifecycle.LiveData

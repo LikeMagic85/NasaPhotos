@@ -1,4 +1,4 @@
-package com.likemagic.nasaphotos.ViewModel.pfmviewmodel
+package com.likemagic.nasaphotos.ViewModel.picFromMarsviewmodel
 
 import com.likemagic.nasaphotos.ViewModel.AppError
 import com.likemagic.nasaphotos.repository.marsDTO.PictureFromMarsDTO

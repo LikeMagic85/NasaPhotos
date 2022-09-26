@@ -17,8 +17,8 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.snackbar.Snackbar
 import com.likemagic.nasaphotos.R
 import com.likemagic.nasaphotos.ViewModel.AppError
-import com.likemagic.nasaphotos.ViewModel.potdviewmodel.POTDAppState
-import com.likemagic.nasaphotos.ViewModel.potdviewmodel.POTDViewModel
+import com.likemagic.nasaphotos.ViewModel.potdViewModel.POTDAppState
+import com.likemagic.nasaphotos.ViewModel.potdViewModel.POTDViewModel
 import com.likemagic.nasaphotos.databinding.FragmentPictureOfTheDayBinding
 import com.likemagic.nasaphotos.utils.APP_SETTINGS
 import com.likemagic.nasaphotos.utils.IMAGE_HD

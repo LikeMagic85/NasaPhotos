@@ -9,8 +9,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
 import com.likemagic.nasaphotos.R
 import com.likemagic.nasaphotos.ViewModel.AppError
-import com.likemagic.nasaphotos.ViewModel.pfmviewmodel.PFMAppState
-import com.likemagic.nasaphotos.ViewModel.pfmviewmodel.PFMViewModel
+import com.likemagic.nasaphotos.ViewModel.picFromMarsviewmodel.PFMAppState
+import com.likemagic.nasaphotos.ViewModel.picFromMarsviewmodel.PFMViewModel
 import com.likemagic.nasaphotos.databinding.FragmentMarsBinding
 
 class MarsFragment : Fragment() {

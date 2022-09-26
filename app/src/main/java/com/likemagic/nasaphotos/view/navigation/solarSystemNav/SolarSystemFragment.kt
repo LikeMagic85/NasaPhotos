@@ -9,8 +9,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
 import com.likemagic.nasaphotos.R
 import com.likemagic.nasaphotos.ViewModel.AppError
-import com.likemagic.nasaphotos.ViewModel.ssviewmodel.SSAppState
-import com.likemagic.nasaphotos.ViewModel.ssviewmodel.SSViewModel
+import com.likemagic.nasaphotos.ViewModel.picSolarSystemViewModel.SSAppState
+import com.likemagic.nasaphotos.ViewModel.picSolarSystemViewModel.SSViewModel
 import com.likemagic.nasaphotos.databinding.FragmentSolarSystemBinding
 
 class SolarSystemFragment : Fragment() {

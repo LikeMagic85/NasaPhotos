@@ -1,4 +1,4 @@
-package com.likemagic.nasaphotos.ViewModel.picOfEarthviewModel
+package com.likemagic.nasaphotos.ViewModel.picOfEarthViewModel
 
 import com.likemagic.nasaphotos.ViewModel.AppError
 import com.likemagic.nasaphotos.repository.earthDTO.PictureOfEarthDTO

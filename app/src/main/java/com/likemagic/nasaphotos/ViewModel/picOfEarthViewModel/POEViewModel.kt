@@ -1,4 +1,4 @@
-package com.likemagic.nasaphotos.ViewModel.picOfEarthviewModel
+package com.likemagic.nasaphotos.ViewModel.picOfEarthViewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

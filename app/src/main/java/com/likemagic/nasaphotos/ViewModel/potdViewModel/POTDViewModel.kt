@@ -1,4 +1,4 @@
-package com.likemagic.nasaphotos.ViewModel.potdviewmodel
+package com.likemagic.nasaphotos.ViewModel.potdViewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

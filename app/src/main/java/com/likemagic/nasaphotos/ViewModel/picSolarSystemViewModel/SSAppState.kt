@@ -1,4 +1,4 @@
-package com.likemagic.nasaphotos.ViewModel.ssviewmodel
+package com.likemagic.nasaphotos.ViewModel.picSolarSystemViewModel
 
 import com.likemagic.nasaphotos.ViewModel.AppError
 import com.likemagic.nasaphotos.repository.solarSystem.PhotoOfSolarSystem

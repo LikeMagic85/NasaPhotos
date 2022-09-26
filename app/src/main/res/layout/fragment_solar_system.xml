@@ -3,11 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/solarSystemRecycler"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/bg_solar_system"/>
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/fragment_solar_system_item" />
 
 </LinearLayout>

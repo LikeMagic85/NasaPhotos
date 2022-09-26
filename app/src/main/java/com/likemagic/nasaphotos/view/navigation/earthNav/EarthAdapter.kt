@@ -1,8 +1,6 @@
 package com.likemagic.nasaphotos.view.navigation.earthNav
 
 import android.content.Context
-import android.location.Geocoder
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,8 +9,6 @@ import coil.load
 import com.likemagic.nasaphotos.databinding.FragmentEarthItemBinding
 import com.likemagic.nasaphotos.repository.earthDTO.PictureOfEarthDTOItem
 import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.time.LocalDateTime
 import java.util.*
 
 class EarthAdapter(

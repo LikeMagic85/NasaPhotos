@@ -5,8 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.likemagic.nasaphotos.BuildConfig
 import com.likemagic.nasaphotos.ViewModel.AppError
-import com.likemagic.nasaphotos.repository.potdDTO.PictureOfTheDayDTO
 import com.likemagic.nasaphotos.repository.POTDRetrofit.PictureOfTheDayRetrofitImpl
+import com.likemagic.nasaphotos.repository.potdDTO.PictureOfTheDayDTO
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

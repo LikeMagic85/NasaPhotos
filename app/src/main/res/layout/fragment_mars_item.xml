@@ -77,6 +77,7 @@
             <com.likemagic.nasaphotos.utils.EquilateralImageView
                 android:layout_marginTop="10dp"
                 android:id="@+id/marsImage"
+                android:scaleType="centerCrop"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </LinearLayout>

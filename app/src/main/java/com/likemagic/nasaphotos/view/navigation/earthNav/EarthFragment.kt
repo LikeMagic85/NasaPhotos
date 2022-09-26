@@ -1,6 +1,5 @@
 package com.likemagic.nasaphotos.view.navigation.earthNav
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,12 +9,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
 import com.likemagic.nasaphotos.R
 import com.likemagic.nasaphotos.ViewModel.AppError
-import com.likemagic.nasaphotos.ViewModel.pfmviewmodel.PFMAppState
-import com.likemagic.nasaphotos.ViewModel.pfmviewmodel.PFMViewModel
 import com.likemagic.nasaphotos.ViewModel.picOfEarthviewModel.POEAppState
 import com.likemagic.nasaphotos.ViewModel.picOfEarthviewModel.POEViewModel
 import com.likemagic.nasaphotos.databinding.FragmentEarthBinding
-import com.likemagic.nasaphotos.view.navigation.marsNav.MarsAdapter
 
 class EarthFragment : Fragment() {
 

@@ -1,11 +1,12 @@
-package com.likemagic.nasaphotos.ViewModel
+package com.likemagic.nasaphotos.ViewModel.potdviewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.likemagic.nasaphotos.BuildConfig
-import com.likemagic.nasaphotos.repository.PictureOfTheDayDTO
-import com.likemagic.nasaphotos.repository.PictureOfTheDayRetrofitImpl
+import com.likemagic.nasaphotos.ViewModel.AppError
+import com.likemagic.nasaphotos.repository.potdDTO.PictureOfTheDayDTO
+import com.likemagic.nasaphotos.repository.POTDRetrofit.PictureOfTheDayRetrofitImpl
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -14,7 +15,8 @@ import java.util.*
 
 class POTDViewModel(
     val liveData: MutableLiveData<POTDAppState> = MutableLiveData(),
-    private val pictureOfTheDayRetrofitImpl: PictureOfTheDayRetrofitImpl = PictureOfTheDayRetrofitImpl()) : ViewModel() {
+    private val pictureOfTheDayRetrofitImpl: PictureOfTheDayRetrofitImpl = PictureOfTheDayRetrofitImpl()
+) : ViewModel() {
 
     fun getLiveData(): LiveData<POTDAppState> {
         return liveData

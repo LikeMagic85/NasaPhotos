@@ -116,6 +116,12 @@
     <string name="image_hd_quality">HD quality images</string>
         <string name="youtube_app_text">Watching videos in YouTube App</string>
         <string name="night_theme_text">Use system theme</string>
+    <string name="camera_text">Camera:</string>
+    <string name="rover_text">Rover:</string>
+    <string name="sol_text">Sol:</string>
+    <string name="photo_from_space_text">Photo from Space</string>
+    <string name="position_text">Position</string>
+        <string name="date_text">Date</string>
 
 
 </resources>

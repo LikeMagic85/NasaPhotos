@@ -3,8 +3,8 @@ package com.likemagic.nasaphotos.view.navigation.viewpager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
-import com.likemagic.nasaphotos.view.navigation.EarthFragment
-import com.likemagic.nasaphotos.view.navigation.MarsFragment
+import com.likemagic.nasaphotos.view.navigation.earthNav.EarthFragment
+import com.likemagic.nasaphotos.view.navigation.marsNav.MarsFragment
 import com.likemagic.nasaphotos.view.navigation.SolarSystemFragment
 
 open class ViewPagerAdapter(private val fm: FragmentManager):FragmentStatePagerAdapter(fm) {

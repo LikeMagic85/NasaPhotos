@@ -117,6 +117,12 @@
     <string name="image_hd_quality">Изображения HD качества</string>
     <string name="youtube_app_text">Просмотр видео в YouTube App</string>
     <string name="night_theme_text">Использовать тему устройства</string>
+    <string name="camera_text">Камера:</string>
+    <string name="rover_text">Ровер:</string>
+    <string name="sol_text">Сол:</string>
+    <string name="photo_from_space_text">Фото из космоса</string>
+    <string name="position_text">Позиция</string>
+    <string name="date_text">Дата</string>
     <!-- TODO: Remove or change this placeholder text -->
 
 

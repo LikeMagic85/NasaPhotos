@@ -35,13 +35,17 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
         binding.navigationView.setNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.navigation_one -> {
-                    requireActivity().supportFragmentManager
-                        .beginTransaction()
-                        .add(R.id.mainContainer, ApiFragment.newInstance())
-                        .commit()
                     dismiss()
                 }
                 R.id.navigation_two -> {
+                    dismiss()
+                }
+                R.id.navigation_three -> {
+                    requireActivity().supportFragmentManager
+                        .beginTransaction()
+                        .addToBackStack("")
+                        .add(R.id.mainContainer, ApiFragment.newInstance())
+                        .commit()
                     dismiss()
                 }
             }

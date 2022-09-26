@@ -1,4 +1,4 @@
-package com.likemagic.nasaphotos.repository
+package com.likemagic.nasaphotos.repository.POTDRetrofit
 
 import com.google.gson.GsonBuilder
 import com.likemagic.nasaphotos.utils.NASA_BASE_URL
@@ -12,7 +12,7 @@ class PictureOfTheDayRetrofitImpl {
         .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
         .build()
 
-    fun getRetrofit():PictureOfTheDayAPI{
+    fun getRetrofit(): PictureOfTheDayAPI {
         return pictureOfTheDayRetrofitImpl.create(PictureOfTheDayAPI::class.java)
     }
 }

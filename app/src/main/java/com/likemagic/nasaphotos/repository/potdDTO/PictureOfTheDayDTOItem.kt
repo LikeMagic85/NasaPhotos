@@ -1,4 +1,4 @@
-package com.likemagic.nasaphotos.repository
+package com.likemagic.nasaphotos.repository.potdDTO
 
 
 import com.google.gson.annotations.SerializedName

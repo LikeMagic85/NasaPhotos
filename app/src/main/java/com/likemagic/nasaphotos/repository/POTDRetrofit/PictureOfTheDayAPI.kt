@@ -1,5 +1,6 @@
-package com.likemagic.nasaphotos.repository
+package com.likemagic.nasaphotos.repository.POTDRetrofit
 
+import com.likemagic.nasaphotos.repository.potdDTO.PictureOfTheDayDTO
 import com.likemagic.nasaphotos.utils.NASA_END_POINT
 import retrofit2.Call
 import retrofit2.http.GET

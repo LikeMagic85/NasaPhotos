@@ -38,44 +38,7 @@ class ApiFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewPager.adapter = ViewPagerAdapter(requireActivity().supportFragmentManager)
-        setupPager()
-    }
-
-    private fun getPagerCurrentItem(){
-        when(ViewPagerAdapter(requireActivity().supportFragmentManager).getPageTitle(binding.viewPager.currentItem)){
-            "Earth" -> binding.textOne.setTextColor(ContextCompat.getColor(requireContext(), android.R.color.holo_red_dark))
-            "Mars" -> binding.textTwo.setTextColor(ContextCompat.getColor(requireContext(), android.R.color.holo_red_dark))
-            "SolarSystem" -> binding.textThree.setTextColor(ContextCompat.getColor(requireContext(), android.R.color.holo_red_dark))
-        }
-    }
-
-    private fun setupPager(){
-        binding.textOne.setTextColor(ContextCompat.getColor(requireContext(), android.R.color.holo_red_dark))
-        binding.viewPager.addOnPageChangeListener(object :ViewPager.OnPageChangeListener{
-            override fun onPageScrolled(
-                position: Int,
-                positionOffset: Float,
-                positionOffsetPixels: Int
-            ) {
-
-            }
-
-            override fun onPageSelected(position: Int) {
-
-            }
-
-            override fun onPageScrollStateChanged(state: Int) {
-                when(state){
-                    ViewPager.SCROLL_STATE_DRAGGING -> {
-                        binding.textThree.setTextColor(ContextCompat.getColor(requireContext(), android.R.color.holo_blue_dark))
-                        binding.textOne.setTextColor(ContextCompat.getColor(requireContext(), android.R.color.holo_blue_dark))
-                        binding.textTwo.setTextColor(ContextCompat.getColor(requireContext(), android.R.color.holo_blue_dark))
-                    }
-                    ViewPager.SCROLL_STATE_SETTLING -> getPagerCurrentItem()
-                }
-            }
-
-        })
+        binding.tabLayout.setupWithViewPager(binding.viewPager)
     }
 
     companion object {

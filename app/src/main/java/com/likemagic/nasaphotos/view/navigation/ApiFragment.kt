@@ -1,14 +1,14 @@
 package com.likemagic.nasaphotos.view.navigation
 
+import com.likemagic.nasaphotos.view.navigation.viewpager.DepthPageTransformer
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.tabs.TabLayoutMediator
 import com.likemagic.nasaphotos.R
 import com.likemagic.nasaphotos.databinding.FragmentApiBinding
-import com.likemagic.nasaphotos.view.navigation.earthNav.EarthFragment
 import com.likemagic.nasaphotos.view.navigation.viewpager.ViewPagerAdapter
 
 class ApiFragment : Fragment() {
@@ -33,8 +33,16 @@ class ApiFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.viewPager.adapter = ViewPagerAdapter(requireActivity().supportFragmentManager)
-        binding.tabLayout.setupWithViewPager(binding.viewPager)
+        binding.viewPager.adapter = ViewPagerAdapter(this)
+        binding.viewPager.setPageTransformer(DepthPageTransformer())
+        TabLayoutMediator(binding.tabLayout, binding.viewPager
+        ) { tab, position ->
+            when(position){
+                0 -> tab.text = requireContext().getString(R.string.earth)
+                1 -> tab.text = requireContext().getString(R.string.mars)
+                2 -> tab.text = requireContext().getString(R.string.solar_system)
+            }
+        }.attach()
     }
 
     private fun setupBottomNavigation(){
